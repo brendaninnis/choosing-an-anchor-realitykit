@@ -5,9 +5,9 @@
 //  Created by Brendan Innis on 2023-01-15.
 //
 
-import UIKit
 import ARKit
 import RealityKit
+import UIKit
 
 class MySceneView: ARView {
     lazy var manager = {
@@ -15,7 +15,7 @@ class MySceneView: ARView {
         manager.delegate = self
         return manager
     }()
-    
+
     func configureViewSession() {
         let config = ARWorldTrackingConfiguration()
         config.planeDetection = [.horizontal]
@@ -30,7 +30,7 @@ extension MySceneView: MySceneManagerDelegate {
     func didAttach(sceneAnchor: AnchorEntity) {
         scene.anchors.append(sceneAnchor)
     }
-    
+
     func didRemove(sceneAnchor: AnchorEntity) {
         scene.anchors.remove(sceneAnchor)
     }

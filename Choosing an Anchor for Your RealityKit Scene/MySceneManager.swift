@@ -5,8 +5,8 @@
 //  Created by Brendan Innis on 2023-01-15.
 //
 
-import Foundation
 import ARKit
+import Foundation
 import RealityKit
 
 // MARK: - Types
@@ -19,35 +19,36 @@ protocol MySceneManagerDelegate: NSObjectProtocol {
 // MARK: - MySceneManager class
 
 class MySceneManager: NSObject {
-    
     // MARK: Manager Configuration
+
     enum PlacementStrategy {
         case firstAvailable
         case manual
     }
-    
+
     struct Options {
         static let `default` = Options(strategy: .manual)
-        
+
         let strategy: PlacementStrategy
     }
-    
+
     // MARK: Properties
-    
+
     let options: Options
     var sceneAnchor: AnchorEntity?
     private var isLoading = false
     var sceneAttached: Bool {
         return isLoading || sceneAnchor != nil
     }
+
     weak var delegate: MySceneManagerDelegate?
-    
+
     // MARK: Public methods
-    
+
     init(options: Options = .default) {
         self.options = options
     }
-    
+
     func attachScene(toAnchor anchor: ARAnchor) {
         isLoading = true
         Experience.loadBoxAsync(completion: { [weak self] result in
@@ -55,9 +56,9 @@ class MySceneManager: NSObject {
                 return
             }
             switch result {
-            case .failure(let error):
+            case let .failure(error):
                 fatalError("Could not load Experience: \(error)")
-            case .success(let boxAnchor):
+            case let .success(boxAnchor):
                 let sceneAnchor = AnchorEntity(anchor: anchor)
                 sceneAnchor.addChild(boxAnchor)
                 self.sceneAnchor = sceneAnchor
@@ -66,9 +67,9 @@ class MySceneManager: NSObject {
             self.isLoading = false
         })
     }
-    
+
     // MARK: Private methods
-    
+
     private func removeScene() {
         guard let sceneAnchor else {
             return
@@ -81,21 +82,22 @@ class MySceneManager: NSObject {
 // MARK: - ARSessionDelegate
 
 extension MySceneManager: ARSessionDelegate {
-    func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+    func session(_: ARSession, didAdd anchors: [ARAnchor]) {
         guard options.strategy == .firstAvailable, !sceneAttached else {
             return
         }
         for anchor in anchors {
             guard let plane = anchor as? ARPlaneAnchor,
-                  plane.alignment == .horizontal else {
+                  plane.alignment == .horizontal
+            else {
                 continue
             }
             attachScene(toAnchor: plane)
             break
         }
     }
-    
-    func session(_ session: ARSession, didRemove anchors: [ARAnchor]) {
+
+    func session(_: ARSession, didRemove anchors: [ARAnchor]) {
         guard sceneAttached else {
             return
         }
