@@ -13,6 +13,8 @@
 		B8002F482974848D004300C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8002F462974848D004300C0 /* Main.storyboard */; };
 		B8002F4A29748492004300C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8002F4929748492004300C0 /* Assets.xcassets */; };
 		B8002F4D29748492004300C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8002F4B29748492004300C0 /* LaunchScreen.storyboard */; };
+		B8002F54297484BE004300C0 /* MySceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8002F53297484BD004300C0 /* MySceneManager.swift */; };
+		B8002F562974857A004300C0 /* MySceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8002F552974857A004300C0 /* MySceneView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		B8002F472974848D004300C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8002F4929748492004300C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8002F4C29748492004300C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B8002F53297484BD004300C0 /* MySceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySceneManager.swift; sourceTree = "<group>"; };
+		B8002F552974857A004300C0 /* MySceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySceneView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 		B8002F3F2974848D004300C0 /* Choosing an Anchor for Your RealityKit Scene */ = {
 			isa = PBXGroup;
 			children = (
+				B8002F552974857A004300C0 /* MySceneView.swift */,
+				B8002F53297484BD004300C0 /* MySceneManager.swift */,
 				B8002F402974848D004300C0 /* AppDelegate.swift */,
 				B8002F422974848D004300C0 /* ViewController.swift */,
 				B8002F442974848D004300C0 /* Experience.rcproject */,
@@ -136,8 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8002F562974857A004300C0 /* MySceneView.swift in Sources */,
 				B8002F432974848D004300C0 /* ViewController.swift in Sources */,
 				B8002F412974848D004300C0 /* AppDelegate.swift in Sources */,
+				B8002F54297484BE004300C0 /* MySceneManager.swift in Sources */,
 				B8002F452974848D004300C0 /* Experience.rcproject in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,7 +295,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NVX5R79A76;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "${PRODUCT_NAME} uses your camera to place virtual objects in your physical environment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -295,6 +303,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,7 +326,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NVX5R79A76;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "${PRODUCT_NAME} uses your camera to place virtual objects in your physical environment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -325,6 +334,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
